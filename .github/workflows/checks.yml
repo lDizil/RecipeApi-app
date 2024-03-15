@@ -1,6 +1,8 @@
 ---
 name: Checks
+
 on: [push]
+
 jobs:
   test-lint:
     name: Test and Lint
@@ -11,15 +13,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USER }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v4
-        runs-on: ubuntu-20.04
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py test"
-        runs-on: ubuntu-20.04
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8"
-        runs-on: ubuntu-20.04
