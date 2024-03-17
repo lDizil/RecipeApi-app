@@ -14,9 +14,9 @@ services:
       sh -c "python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
-      - DB_NAME=dev-db
-      - DB_USER=dev-user
-      - DB_PASS=hard-pass
+      - DB_NAME=ShopixDB
+      - DB_USER=Denis
+      - DB_PASS=Admin1337
     depends_on:
       - db
 
@@ -26,9 +26,9 @@ services:
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=dev-db
-      - POSTGRES_USER=dev-user
-      - POSTGRES_PASSWORD=hard-pass
+      - POSTGRES_DB=ShopixDB
+      - POSTGRES_USER=Denis
+      - POSTGRES_PASSWORD=Admin1337
 
 
 volumes:
